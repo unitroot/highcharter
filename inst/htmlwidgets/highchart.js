@@ -123,17 +123,15 @@ HTMLWidgets.widget({
     
   },
 
+  
+  /* fix bug here */
   resize: function(el, width, height, instance) {
     
     /* http://stackoverflow.com/questions/18445784/ */
     var chart = $("#" +el.id).highcharts();
-    
-    if (chart && chart.options.chart.reflow === true) {  // _check for reflow option_
-      var w = chart.renderTo.clientWidth; 
-      var h = chart.renderTo.clientHeight; 
-      chart.setSize(w, h); 
-    }
-    
+    var height = chart.renderTo.clientHeight; 
+    var width = chart.renderTo.clientWidth; 
+    chart.setSize(width, height); 
 
   }
 
